@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: "Anonymous Pro", monospace;
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #ff3333;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    animation: fadeIn 2s;
+}
+
+.prompt {
+    font-size: 3rem;
+    color: #c9c9c9;
+    animation: slideIn 2s;
+    margin: 20px 0;
+}
+
+.cursor {
+    animation: blink 1s step-start infinite;
+}
+
+.links {
+    margin: 20px 0;
+}
+
+.link {
+    color: #ff3333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+.link:hover {
+    color: #c9c9c9;
+}
+
+.link-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.link-tooltip .link-tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #4d4d4dab;
+  color: #c9c9c9;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 3;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.link-tooltip .link-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #4d4d4dab transparent transparent transparent;
+}
+
+.link-tooltip:hover .link-tooltip-text {
+  visibility: visible;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #c9c9c9;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
