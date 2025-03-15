@@ -21,22 +21,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             let res = await fetch('https://wakafetch.sneaky.sh/api/wakatime');
             let data = await res.json();
-
-            wakatimeStats.innerHTML = `
-                <p><strong>All-Time Coding Time:</strong> ${data.allTime.codingTime}h</p>
-                <p><strong>Most Active Day:</strong> ${data.allTime.mostActiveDay}</p>
-                <p><strong>Most Active Time:</strong> ${data.allTime.mostActiveTime}</p>
-                <p><strong>Top Languages (Last 7 Days):</strong> ${data.last7Days.topLanguages}</p>
-                <p><strong>Coding Time (Last 7 Days):</strong> ${data.last7Days.codingTime}h</p>
-                <p><strong>Active Days (Last 7 Days):</strong></p>
-                <ul>
-                    ${data.last7Days.activeDays.map(day => `
-                        <li>${day.date}: ${day.hours}h</li>
-                    `).join('')}
-                </ul>
-            `;
+    
+            if (data && data.allTime && data.last7Days) {
+                wakatimeStats.innerHTML = `
+                    <p><strong>All-Time Coding Time:</strong> ${data.allTime.codingTime}h</p>
+                    <p><strong>Most Active Day:</strong> ${data.allTime.mostActiveDay}</p>
+                    <p><strong>Most Active Time:</strong> ${data.allTime.mostActiveTime}</p>
+                    <p><strong>Top Languages (Last 7 Days):</strong> ${data.last7Days.topLanguages}</p>
+                    <p><strong>Coding Time (Last 7 Days):</strong> ${data.last7Days.codingTime}h</p>
+                    <p><strong>Active Days (Last 7 Days):</strong></p>
+                    <ul>
+                        ${Array.isArray(data.last7Days.activeDays) && data.last7Days.activeDays.length > 0
+                            ? data.last7Days.activeDays.map(day => `
+                                <li>${day.date}: ${day.hours}h</li>
+                            `).join('')
+                            : '<li>No active days available</li>'
+                        }
+                    </ul>
+                `;
+            } else {
+                wakatimeStats.textContent = 'WakaTime stats unavailable.';
+            }
         } catch (error) {
-            wakatimeStats.textContent = 'WakaTime stats unavailable.';
             console.error(error);
         }
     }
