@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             let res = await fetch('https://api.github.com/users/svxy');
             let data = await res.json();
             githubStats.innerHTML = `
-                <p>Repos: ${data.public_repos}</p>
-                <p>Followers: ${data.followers}</p>
-                <p>Following: ${data.following}</p>
+                <p><strong>Repos:</strong> ${data.public_repos}</p>
+                <p><strong>Followers:</strong> ${data.followers}</p>
+                <p><strong>Following:</strong> ${data.following}</p>
             `;
         } catch (error) {
             githubStats.textContent = 'GitHub stats unavailable.';
@@ -23,27 +23,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             let data = await res.json();
     
             if (data && data.allTime && data.last7Days) {
+                const topLanguages = data.allTime.topLanguages ? data.allTime.topLanguages : 'N/A';
+                const codingTimeAllTime = data.allTime.codingTime ? data.allTime.codingTime : '0';
+                const codingTime7Days = data.last7Days.codingTime ? data.last7Days.codingTime : '0';
+                const topEditor = data.allTime.topEditor ? data.allTime.topEditor : 'N/A';
+                const topOperatingSystem = data.allTime.topOperatingSystem ? data.allTime.topOperatingSystem : 'N/A';
+    
                 wakatimeStats.innerHTML = `
-                    <p><strong>All-Time Coding Time:</strong> ${data.allTime.codingTime}h</p>
-                    <p><strong>Most Active Day:</strong> ${data.allTime.mostActiveDay}</p>
-                    <p><strong>Most Active Time:</strong> ${data.allTime.mostActiveTime}</p>
-                    <p><strong>Top Languages (Last 7 Days):</strong> ${data.last7Days.topLanguages}</p>
-                    <p><strong>Coding Time (Last 7 Days):</strong> ${data.last7Days.codingTime}h</p>
-                    <p><strong>Active Days (Last 7 Days):</strong></p>
-                    <ul>
-                        ${Array.isArray(data.last7Days.activeDays) && data.last7Days.activeDays.length > 0
-                            ? data.last7Days.activeDays.map(day => `
-                                <li>${day.date}: ${day.hours}h</li>
-                            `).join('')
-                            : '<li>No active days available</li>'
-                        }
-                    </ul>
+                    <p><strong>All-Time Coding Time:</strong> ${codingTimeAllTime}h</p>
+                    <p><strong>Coding Time (Last 7 Days):</strong> ${codingTime7Days}h</p>
+                    <p><strong>Top Languages:</strong> ${topLanguages}</p>
+                    <p><strong>Top Editor:</strong> ${topEditor}</p>
+                    <p><strong>Top Operating System:</strong> ${topOperatingSystem}</p>
                 `;
             } else {
                 wakatimeStats.textContent = 'WakaTime stats unavailable.';
             }
         } catch (error) {
             console.error(error);
+            wakatimeStats.textContent = 'Error fetching WakaTime stats.';
         }
     }
 
