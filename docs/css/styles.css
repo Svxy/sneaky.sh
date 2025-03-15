@@ -12,10 +12,10 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 1));
     color: #fff;
     font-family: "Anonymous Pro", monospace;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 
@@ -26,12 +26,15 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 1));
+    background-repeat: no-repeat;
 }
 
 .content {
     text-align: center;
     position: relative;
     z-index: 2;
+    padding: 20px;
 }
 
 h1 {
@@ -62,12 +65,13 @@ h1 {
     text-decoration: none;
     margin: 0 15px;
     font-size: 1.5rem;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
     position: relative;
 }
 
 .link:hover {
     color: #c9c9c9;
+    transform: scale(1.1);
 }
 
 .link-tooltip {
