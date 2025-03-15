@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function fetchWakaTimeStats() {
         try {
-            let res = await fetch('/.netlify/functions/wakatime');
+            let res = await fetch('https://wakafetch.sneaky.sh/api/wakatime');
             let data = await res.json();
 
             wakatimeStats.innerHTML = `
