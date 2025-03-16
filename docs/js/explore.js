@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('shipStats').innerHTML = shipStatsHTML;
     
         } catch (error) {
-            document.getElementById('seaOfThievesStats').innerHTML = '<p>Error fetching Sea of Thieves stats.</p>';
+            document.getElementById('seaOfThievesStats').innerHTML = 'Error fetching Sea of Thieves stats.';
             console.error(error);
         }
     }    
