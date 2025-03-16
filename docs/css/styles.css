@@ -75,38 +75,39 @@ h1 {
 }
 
 .link-tooltip {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .link-tooltip .link-tooltip-text {
-  visibility: hidden;
-  width: 120px;
-  background-color: #4d4d4dab;
-  color: #c9c9c9;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 3;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -60px;
+    visibility: hidden;
+    width: 120px;
+    background-color: #4d4d4dab;
+    color: #c9c9c9;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 3;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
 }
 
 .link-tooltip .link-tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #4d4d4dab transparent transparent transparent;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #4d4d4dab transparent transparent transparent;
 }
 
 .link-tooltip:hover .link-tooltip-text {
-  visibility: visible;
+    visibility: visible;
 }
 
 .copyright {

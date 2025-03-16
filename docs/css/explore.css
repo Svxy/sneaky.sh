@@ -49,6 +49,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    align-items: start;
 }
 
 .category {
@@ -60,6 +61,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: auto;
 }
 
 .category:hover {
@@ -95,6 +97,17 @@ h2 {
     color: #ff3333;
     font-size: 1.4rem;
     margin-bottom: 5px;
+}
+
+#playerStats, #shipStats, #wakatime-stats {
+    padding: 0px;
+}
+
+#playerStats p, #shipStats p, #wakatime-stats p {
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
 }
 
 p {
@@ -149,6 +162,17 @@ footer {
     .subcategory h3 {
         font-size: 1.2rem;
     }
+    #seaOfThievesStats, #wakatime-stats {
+        padding: 15px;
+    }
+    
+    #playerStats, #shipStats, #wakatime-stats {
+        padding: 12px;
+    }
+    
+    #playerStats p, #shipStats p, #wakatime-stats p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -166,5 +190,16 @@ footer {
 
     .subcategory h3 {
         font-size: 1rem;
+    }
+    #seaOfThievesStats, #wakatime-stats {
+        padding: 10px;
+    }
+    
+    #playerStats, #shipStats, #wakatime-stats {
+        padding: 10px;
+    }
+    
+    #playerStats p, #shipStats p, #wakatime-stats p {
+        font-size: 0.9rem;
     }
 }
