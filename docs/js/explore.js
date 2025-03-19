@@ -70,8 +70,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="subcategory">
                         <h3>Ship: ${ship.Name} (${ship.Type})</h3>
                         <p><strong>Title:</strong> ${ship.Alignments[0].Title || 'N/A'}</p>
-                        <p><strong>Gold Earned (Crew):</strong> ${ship.Alignments[0].Accolades[0].Stats[0].Value || '0'}</p>
-                        <p><strong>Treasures Sold (Crew):</strong> ${ship.Alignments[0].Accolades[1].Stats[0].Value || '0'}</p>
+                        <p><strong>Gold Earned:</strong> ${ship.Alignments[0].Accolades[0].Stats[0].Value || '0'}</p>
+                        <p><strong>Treasures Sold:</strong> ${ship.Alignments[0].Accolades[1].Stats[0].Value || '0'}</p>
+                        <p><strong>Days at Sea:</strong> ${ship.Alignments[1].Accolades[12].Stats[0].Value || '0'}</p>
+                        <p><strong>Nautical Miles Sailed:</strong> ${ship.Alignments[1].Accolades[10].Stats[0].Value || '0'}</p>
+                        <p><strong>Islands Visited:</strong> ${ship.Alignments[1].Accolades[13].Stats[0].Value || '0'}</p>
                     </div>
                 `;
             }).join('');
